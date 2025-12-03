@@ -141,3 +141,20 @@ export async function getCoursesByInstructor(instructorId: string) {
     throw new Error('Failed to fetch courses');
   }
 }
+
+// Fetch a single page by slug
+export async function getPageBySlug(slug: string) {
+  try {
+    const response = await cosmic.objects.findOne({
+      type: 'pages',
+      slug
+    }).depth(1);
+    
+    return response.object;
+  } catch (error) {
+    if (hasStatus(error) && error.status === 404) {
+      return null;
+    }
+    throw new Error('Failed to fetch page');
+  }
+}

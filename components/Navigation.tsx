@@ -25,6 +25,12 @@ export default function Navigation() {
             >
               Instructors
             </Link>
+            <Link 
+              href="/about" 
+              className="text-gray-700 hover:text-primary-600 font-medium transition-colors"
+            >
+              About
+            </Link>
           </div>
         </div>
       </div>

@@ -57,6 +57,19 @@ export interface Lesson extends CosmicObject {
   };
 }
 
+// Page interface
+export interface Page extends CosmicObject {
+  type: 'pages';
+  metadata: {
+    title: string;
+    content: string;
+    hero_image?: {
+      url: string;
+      imgix_url: string;
+    };
+  };
+}
+
 // API response types
 export interface CosmicResponse<T> {
   objects: T[];
@@ -76,4 +89,8 @@ export function isLesson(obj: CosmicObject): obj is Lesson {
 
 export function isInstructor(obj: CosmicObject): obj is Instructor {
   return obj.type === 'instructors';
+}
+
+export function isPage(obj: CosmicObject): obj is Page {
+  return obj.type === 'pages';
 }
